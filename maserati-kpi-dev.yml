@@ -5,7 +5,7 @@ spring:
   application:
     name: maserati-kpi
   datasource:
-    url: jdbc:mysql://10.1.180.136/pig
+    url: jdbc:mysql://localhost/pig
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
