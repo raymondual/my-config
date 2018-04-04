@@ -1,11 +1,11 @@
 server:
   port: 4000
-#Redis cache 过期时间设置
+#Redis cache 杩囨湡鏃堕棿璁剧疆
 redis:
   cache:
     expiration: 3600
 
-# datasoure默认使用JDBC
+# datasoure榛樿浣跨敤JDBC
 spring:
   rabbitmq:
     host: 10.1.180.136
@@ -19,7 +19,7 @@ spring:
     sampler:
       percentage: 1.0
 
-# 分库分表支持
+# 鍒嗗簱鍒嗚〃鏀寔
 sharding:
   jdbc:
     defaultDataSourceName:
@@ -27,7 +27,7 @@ sharding:
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: root
-      jdbc-url: jdbc:mysql://10.1.180.136:3306/pig?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      jdbc-url: jdbc:mysql://localhost/pig?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
     datasource:
       names: ds
       ds:
@@ -35,7 +35,7 @@ sharding:
         driver-class-name: com.mysql.jdbc.Driver
         username: root
         password: root
-        jdbc-url: jdbc:mysql://10.1.180.136:3306/pig?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+        jdbc-url: jdbc:mysql://localhost/pig?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
     config:
       sharding:
         tables:
@@ -47,20 +47,20 @@ sharding:
                 algorithm-expression: sys_log_${id % 2}
             key-generator-column-name: id
             
-#mybaits-plus配置，修改主键类型，mapper.xml、type 别名等
+#mybaits-plus閰嶇疆锛屼慨鏀逛富閿被鍨嬶紝mapper.xml銆乼ype 鍒悕绛�
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   typeAliasesPackage: com.github.pig.admin.model.entity
   global-config:
-    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    #涓婚敭绫诲瀷  0:"鏁版嵁搴揑D鑷", 1:"鐢ㄦ埛杈撳叆ID",2:"鍏ㄥ眬鍞竴ID (鏁板瓧绫诲瀷鍞竴ID)", 3:"鍏ㄥ眬鍞竴ID UUID";
     id-type: 0
-    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    #瀛楁绛栫暐 0:"蹇界暐鍒ゆ柇",1:"闈� NULL 鍒ゆ柇"),2:"闈炵┖鍒ゆ柇"
     field-strategy: 1
-    #驼峰下划线转换
+    #椹煎嘲涓嬪垝绾胯浆鎹�
     db-column-underline: true
-    #刷新mapper 调试神器
+    #鍒锋柊mapper 璋冭瘯绁炲櫒
     refresh-mapper: true
-    #数据库大写下划线转换
+    #鏁版嵁搴撳ぇ鍐欎笅鍒掔嚎杞崲
     #capital-mode: true
   configuration:
     map-underscore-to-camel-case: true
