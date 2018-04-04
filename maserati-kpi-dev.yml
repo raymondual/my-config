@@ -1,0 +1,19 @@
+logging:
+  level:
+    kpi.maserati.cloud.neu: DEBUG
+spring:
+  application:
+    name: maserati-kpi
+  datasource:
+    url: jdbc:mysql://10.1.180.136/pig
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+server:
+  port: 9991
+
+mybatis-plus:
+  typeAliasesPackage: kpi.maserati.cloud.neu.entity
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+  global-config:
+    db-type: mysql
